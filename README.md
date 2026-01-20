@@ -1,3 +1,9 @@
+variables
+NEXT_PUBLIC_GIPHY_API_KEY=IOTvBq5bOAthfhtXtQUhJyf3bIdn0ZWp
+NEXT_PUBLIC_KLIPY_API_KEY=BY3kK3EYHi4I7J47nix22elSqXJkxaHgvSBNDRe8ym33C3sAc5AxYHPn7ORcQKNd
+NEXT_PUBLIC_KLIPY_CUSTOMER_ID=customer_1234567890
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
