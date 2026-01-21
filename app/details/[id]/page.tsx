@@ -21,10 +21,6 @@ export default function Page({ params }: Props) {
     queryFn: () => getSingleImage(imageId as string),
     enabled: !!imageId,
   });
-  useEffect(() => {
-    console.log("Detailed page ID:", imageId);
-    console.log("Single image data:", data?.data.data[0]);
-  }, [data, imageId]);
 
   if (isPending) {
     return (

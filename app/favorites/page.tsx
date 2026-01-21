@@ -28,7 +28,7 @@ export default function Page() {
     queryFn: () => getSingleImage(images as string),
     enabled: !!images,
   });
-  console.log("Favorites data:", data);
+
   if (isPending) {
     return (
       <Container>
@@ -43,17 +43,6 @@ export default function Page() {
         <p>You have no favorite images yet.</p>
       ) : (
         <div className="py-4">
-          {/* {data.data.data.map((image: GifType) => (
-            <div key={image.id} className="border rounded overflow-hidden">
-              <Image
-                width={300}
-                height={200}
-                src={image.file.hd.gif.url}
-                alt={`Favorite ${image.id}`}
-                className="w-full h-auto"
-              />
-            </div>
-          ))} */}
           <MasonryGallery items={data?.data.data ?? []} />
         </div>
       )}

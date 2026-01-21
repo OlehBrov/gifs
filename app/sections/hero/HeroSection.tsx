@@ -38,11 +38,7 @@ export const HeroSection = () => {
     enabled: !!debouncedSearch,
     initialPageParam: 1,
     getNextPageParam: (lastPage, allPages) => {
-      // З вашого коду видно, що ви перевіряєте has_next
-      // Отже, структура має бути: lastPage.data.has_next та lastPage.data.current_page
-      console.log("lastPage in getNextPageParam:", lastPage);
-      if (lastPage?.data?.has_next) {
-        // Повертаємо наступну сторінку
+          if (lastPage?.data?.has_next) {
         return lastPage.data.current_page + 1;
       }
       return undefined; // Більше немає сторінок
@@ -66,21 +62,13 @@ export const HeroSection = () => {
     );
     result.fetchNextPage?.();
   };
-  // derive images directly from the query result to avoid calling setState synchronously in an effect
-  useEffect(() => {
-    console.log("onCategory data:", onCategory.data);
-  }, [onCategory]);
-  useEffect(() => {
-    console.log("Categories data:", categories.data);
-    console.log("result data (pages):", result.data?.pages);
-  }, [categories.data, result.data]);
+
 
   useEffect(() => {
     const id = setTimeout(() => setDebouncedSearch(searchTerm.trim()), 600);
     return () => clearTimeout(id);
   }, [searchTerm]);
 
-  // flatten pages into images array
   const images = result.data?.pages?.flatMap((p) => p.data?.data ?? []) ?? [];
 
   const handleFavoritesClick = (id: number) => {
@@ -97,7 +85,6 @@ export const HeroSection = () => {
     });
   };
 
-  // favorites are initialized lazily from localStorage in useState to avoid synchronous setState in effect
   return (
     <section className="w-full flex flex-col items-center text-center mb-20">
       <Container>
